@@ -1,0 +1,378 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=18690, tid=0x00007ff0e0d99700
+#
+# JRE version:  (8.0_172-b01) (build )
+# Java VM: OpenJDK 64-Bit Server VM (25.172-b01 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007ff0d8018000):  JavaThread "Unknown thread" [_thread_in_vm, id=18701, stack(0x00007ff0e0c9a000,0x00007ff0e0d9a000)]
+
+Stack: [0x00007ff0e0c9a000,0x00007ff0e0d9a000],  sp=0x00007ff0e0d98400,  free space=1017k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xa3e58e]  VMError::report_and_die()+0x14e
+V  [libjvm.so+0x4dde69]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x99
+V  [libjvm.so+0x8af053]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x113
+V  [libjvm.so+0x8af279]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x8a681a]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x913f1b]  PSVirtualSpace::expand_by(unsigned long)+0x6b
+V  [libjvm.so+0x914dd4]  PSYoungGen::initialize_virtual_space(ReservedSpace, unsigned long)+0x74
+V  [libjvm.so+0x9156de]  PSYoungGen::initialize(ReservedSpace, unsigned long)+0x3e
+V  [libjvm.so+0x2d1654]  AdjoiningGenerations::AdjoiningGenerations(ReservedSpace, GenerationSizer*, unsigned long)+0x344
+V  [libjvm.so+0x8cbea7]  ParallelScavengeHeap::initialize()+0x1e7
+V  [libjvm.so+0xa09171]  Universe::initialize_heap()+0x101
+V  [libjvm.so+0xa0a223]  universe_init()+0x33
+V  [libjvm.so+0x60a465]  init_globals()+0x55
+V  [libjvm.so+0x9eeaf7]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x207
+V  [libjvm.so+0x66f9f4]  JNI_CreateJavaVM+0x74
+C  [libjli.so+0x75f7]  JavaMain+0x87
+C  [libpthread.so.0+0x76db]  start_thread+0xdb
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00007ff0d8018000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=18701, stack(0x00007ff0e0c9a000,0x00007ff0e0d9a000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 08:02 8651865                            /home/philip/java/8.0.172-zulu/bin/java
+00600000-00601000 rw-p 00000000 08:02 8651865                            /home/philip/java/8.0.172-zulu/bin/java
+01106000-01127000 rw-p 00000000 00:00 0                                  [heap]
+d0000000-f0000000 ---p 00000000 00:00 0 
+7ff0c9000000-7ff0c9270000 rwxp 00000000 00:00 0 
+7ff0c9270000-7ff0d8000000 ---p 00000000 00:00 0 
+7ff0d8000000-7ff0d8041000 rw-p 00000000 00:00 0 
+7ff0d8041000-7ff0dc000000 ---p 00000000 00:00 0 
+7ff0dd408000-7ff0dd683000 rw-p 00000000 00:00 0 
+7ff0dd683000-7ff0dd803000 ---p 00000000 00:00 0 
+7ff0dd803000-7ff0dd80e000 rw-p 00000000 00:00 0 
+7ff0dd80e000-7ff0ddbc4000 ---p 00000000 00:00 0 
+7ff0ddbc4000-7ff0ddbdf000 r-xp 00000000 08:02 8651766                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libzip.so
+7ff0ddbdf000-7ff0dddde000 ---p 0001b000 08:02 8651766                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libzip.so
+7ff0dddde000-7ff0ddddf000 rw-p 0001a000 08:02 8651766                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libzip.so
+7ff0ddddf000-7ff0dddea000 r-xp 00000000 08:02 529066                     /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7ff0dddea000-7ff0ddfe9000 ---p 0000b000 08:02 529066                     /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7ff0ddfe9000-7ff0ddfea000 r--p 0000a000 08:02 529066                     /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7ff0ddfea000-7ff0ddfeb000 rw-p 0000b000 08:02 529066                     /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7ff0ddfeb000-7ff0ddff1000 rw-p 00000000 00:00 0 
+7ff0ddff1000-7ff0de008000 r-xp 00000000 08:02 529060                     /lib/x86_64-linux-gnu/libnsl-2.27.so
+7ff0de008000-7ff0de207000 ---p 00017000 08:02 529060                     /lib/x86_64-linux-gnu/libnsl-2.27.so
+7ff0de207000-7ff0de208000 r--p 00016000 08:02 529060                     /lib/x86_64-linux-gnu/libnsl-2.27.so
+7ff0de208000-7ff0de209000 rw-p 00017000 08:02 529060                     /lib/x86_64-linux-gnu/libnsl-2.27.so
+7ff0de209000-7ff0de20b000 rw-p 00000000 00:00 0 
+7ff0de20b000-7ff0de216000 r-xp 00000000 08:02 529076                     /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7ff0de216000-7ff0de415000 ---p 0000b000 08:02 529076                     /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7ff0de415000-7ff0de416000 r--p 0000a000 08:02 529076                     /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7ff0de416000-7ff0de417000 rw-p 0000b000 08:02 529076                     /lib/x86_64-linux-gnu/libnss_nis-2.27.so
+7ff0de417000-7ff0de41f000 r-xp 00000000 08:02 529062                     /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7ff0de41f000-7ff0de61f000 ---p 00008000 08:02 529062                     /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7ff0de61f000-7ff0de620000 r--p 00008000 08:02 529062                     /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7ff0de620000-7ff0de621000 rw-p 00009000 08:02 529062                     /lib/x86_64-linux-gnu/libnss_compat-2.27.so
+7ff0de621000-7ff0de62b000 r-xp 00000000 08:02 8651767                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libinstrument.so
+7ff0de62b000-7ff0de82a000 ---p 0000a000 08:02 8651767                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libinstrument.so
+7ff0de82a000-7ff0de82b000 rw-p 00009000 08:02 8651767                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libinstrument.so
+7ff0de82b000-7ff0de855000 r-xp 00000000 08:02 8651784                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libjava.so
+7ff0de855000-7ff0dea55000 ---p 0002a000 08:02 8651784                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libjava.so
+7ff0dea55000-7ff0dea57000 rw-p 0002a000 08:02 8651784                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libjava.so
+7ff0dea57000-7ff0dea64000 r-xp 00000000 08:02 8651770                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libverify.so
+7ff0dea64000-7ff0dec64000 ---p 0000d000 08:02 8651770                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libverify.so
+7ff0dec64000-7ff0dec66000 rw-p 0000d000 08:02 8651770                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/libverify.so
+7ff0dec66000-7ff0dec6d000 r-xp 00000000 08:02 529116                     /lib/x86_64-linux-gnu/librt-2.27.so
+7ff0dec6d000-7ff0dee6c000 ---p 00007000 08:02 529116                     /lib/x86_64-linux-gnu/librt-2.27.so
+7ff0dee6c000-7ff0dee6d000 r--p 00006000 08:02 529116                     /lib/x86_64-linux-gnu/librt-2.27.so
+7ff0dee6d000-7ff0dee6e000 rw-p 00007000 08:02 529116                     /lib/x86_64-linux-gnu/librt-2.27.so
+7ff0dee6e000-7ff0df00b000 r-xp 00000000 08:02 529039                     /lib/x86_64-linux-gnu/libm-2.27.so
+7ff0df00b000-7ff0df20a000 ---p 0019d000 08:02 529039                     /lib/x86_64-linux-gnu/libm-2.27.so
+7ff0df20a000-7ff0df20b000 r--p 0019c000 08:02 529039                     /lib/x86_64-linux-gnu/libm-2.27.so
+7ff0df20b000-7ff0df20c000 rw-p 0019d000 08:02 529039                     /lib/x86_64-linux-gnu/libm-2.27.so
+7ff0df20c000-7ff0dfe57000 r-xp 00000000 08:02 8651787                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/server/libjvm.so
+7ff0dfe57000-7ff0e0056000 ---p 00c4b000 08:02 8651787                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/server/libjvm.so
+7ff0e0056000-7ff0e0126000 rw-p 00c4a000 08:02 8651787                    /home/philip/java/8.0.172-zulu/jre/lib/amd64/server/libjvm.so
+7ff0e0126000-7ff0e0168000 rw-p 00000000 00:00 0 
+7ff0e0168000-7ff0e034f000 r-xp 00000000 08:02 528976                     /lib/x86_64-linux-gnu/libc-2.27.so
+7ff0e034f000-7ff0e054f000 ---p 001e7000 08:02 528976                     /lib/x86_64-linux-gnu/libc-2.27.so
+7ff0e054f000-7ff0e0553000 r--p 001e7000 08:02 528976                     /lib/x86_64-linux-gnu/libc-2.27.so
+7ff0e0553000-7ff0e0555000 rw-p 001eb000 08:02 528976                     /lib/x86_64-linux-gnu/libc-2.27.so
+7ff0e0555000-7ff0e0559000 rw-p 00000000 00:00 0 
+7ff0e0559000-7ff0e055c000 r-xp 00000000 08:02 528999                     /lib/x86_64-linux-gnu/libdl-2.27.so
+7ff0e055c000-7ff0e075b000 ---p 00003000 08:02 528999                     /lib/x86_64-linux-gnu/libdl-2.27.so
+7ff0e075b000-7ff0e075c000 r--p 00002000 08:02 528999                     /lib/x86_64-linux-gnu/libdl-2.27.so
+7ff0e075c000-7ff0e075d000 rw-p 00003000 08:02 528999                     /lib/x86_64-linux-gnu/libdl-2.27.so
+7ff0e075d000-7ff0e0772000 r-xp 00000000 08:02 8651699                    /home/philip/java/8.0.172-zulu/lib/amd64/jli/libjli.so
+7ff0e0772000-7ff0e0972000 ---p 00015000 08:02 8651699                    /home/philip/java/8.0.172-zulu/lib/amd64/jli/libjli.so
+7ff0e0972000-7ff0e0973000 rw-p 00015000 08:02 8651699                    /home/philip/java/8.0.172-zulu/lib/amd64/jli/libjli.so
+7ff0e0973000-7ff0e098d000 r-xp 00000000 08:02 529108                     /lib/x86_64-linux-gnu/libpthread-2.27.so
+7ff0e098d000-7ff0e0b8c000 ---p 0001a000 08:02 529108                     /lib/x86_64-linux-gnu/libpthread-2.27.so
+7ff0e0b8c000-7ff0e0b8d000 r--p 00019000 08:02 529108                     /lib/x86_64-linux-gnu/libpthread-2.27.so
+7ff0e0b8d000-7ff0e0b8e000 rw-p 0001a000 08:02 529108                     /lib/x86_64-linux-gnu/libpthread-2.27.so
+7ff0e0b8e000-7ff0e0b92000 rw-p 00000000 00:00 0 
+7ff0e0b92000-7ff0e0bb9000 r-xp 00000000 08:02 528948                     /lib/x86_64-linux-gnu/ld-2.27.so
+7ff0e0c99000-7ff0e0c9a000 ---p 00000000 00:00 0 
+7ff0e0c9a000-7ff0e0c9d000 ---p 00000000 00:00 0 
+7ff0e0c9d000-7ff0e0d9e000 rw-p 00000000 00:00 0 
+7ff0e0daf000-7ff0e0db7000 rw-s 00000000 08:02 2369786                    /tmp/hsperfdata_philip/18690
+7ff0e0db7000-7ff0e0db8000 rw-p 00000000 00:00 0 
+7ff0e0db8000-7ff0e0db9000 r--p 00000000 00:00 0 
+7ff0e0db9000-7ff0e0dba000 r--p 00027000 08:02 528948                     /lib/x86_64-linux-gnu/ld-2.27.so
+7ff0e0dba000-7ff0e0dbb000 rw-p 00028000 08:02 528948                     /lib/x86_64-linux-gnu/ld-2.27.so
+7ff0e0dbb000-7ff0e0dbc000 rw-p 00000000 00:00 0 
+7fffc194c000-7fffc1974000 rw-p 00000000 00:00 0                          [stack]
+7fffc19bf000-7fffc19c2000 r--p 00000000 00:00 0                          [vvar]
+7fffc19c2000-7fffc19c4000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Dendpoints.shutdown.enabled=true -Denv=development -Dfull.stacktrace=false -Dgrails.env=development -Dgrails.full.stacktrace=false -Dinfo.app.grailsVersion=3.3.6 -Dinfo.app.name=truckerweb -Dinfo.app.version=0.1 -Djdk.reflect.allowGetCallerClass=true -Drun.active=true -Dspring.output.ansi.enabled=always -Dspring.profiles.active -Dspringloaded=inclusions=grails.plugins..*;synchronize=true;allowSplitPackages=true;cacheDir=/home/philip/Projects/truckerweb/build/springloaded -Dverbose=false -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:CICompilerCount=3 -javaagent:/home/philip/.gradle/caches/modules-2/files-2.1/org.springframework/springloaded/1.2.8.RELEASE/b60bac05b0451cdc1863bfec617f39aa0dcaaa43/springloaded-1.2.8.RELEASE.jar -Xverify:none -Xms768m -Xmx768m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant 
+java_command: truckerweb.Application
+java_class_path (initial): /home/philip/Projects/truckerweb/src/main/resources:/home/philip/Projects/truckerweb/grails-app/views:/home/philip/Projects/truckerweb/grails-app/i18n:/home/philip/Projects/truckerweb/grails-app/conf:/home/philip/Projects/truckerweb/build/classes/main:/home/philip/Projects/truckerweb/build/resources/main:/home/philip/Projects/truckerweb/gsp-classes:/home/philip/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-logging/1.5.14.RELEASE/970e7424050d1d1179640ec53b24953fa29fdcbd/spring-boot-starter-logging-1.5.14.RELEASE.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-autoconfigure/1.5.14.RELEASE/a33f2ce0b5c4a41d61aa5fa1817d0055dea7150e/spring-boot-autoconfigure-1.5.14.RELEASE.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.grails/grails-core/3.3.6/4e108aaae7ce13bfb2aaa054deeed91c96d5926d/grails-core-3.3.6.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-actuator/1.5.14.RELEASE/b25f52cc7db0bbe03c69a8a7efb2bbb6183c0796/spring-boot-starter-actuator-1.5.14.RELEASE.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-tomcat/1.5.14.RELEASE/ec97b1bdac6feee248116a79c537023894950e4c/spring-boot-starter-tomcat-1.5.14.RELEASE.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.grails/grails-web-boot/3.3.6/2de31a5d93f470fba29f84e150dae4d728604db8/grails-web-boot-3.3.6.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.grails/grails-logging/3.3.6/9ee745dc28866ad5c9460a85c068f25889bf300f/grails-logging-3.3.6.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.grails/grails-plugin-rest/3.3.6/76b5c665d761a3c49d0b9b0d5f6fb1a91990ba6b/grails-plugin-rest-3.3.6.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.grails/grails-plugin-databinding/3.3.6/f8b87062ae1998ea692ff35efb20fbae516a284e/grails-plugin-databinding-3.3.6.jar:/home/philip/.gradle/caches/modules-2/files-2.1/org.
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/home/philip/java/8.0.172-zulu
+PATH=/home/philip/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/philip/java/8.0.172-zulu/bin:/home/philip/groovy-2.4.5/bin:/home/philip/grails-3.3.6/bin:/usr/share/gradle/bin:/usr/share/java/mysql-connector-java.jar:/usr/local/android-studio/bin:~/bin
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xa3ef70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xa3ef70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x8a8ec0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x8a8ec0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x8a8ec0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x8a8ec0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x8aa5c0], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=18.04
+DISTRIB_CODENAME=bionic
+DISTRIB_DESCRIPTION="Ubuntu 18.04.1 LTS"
+
+uname:Linux 4.15.0-33-generic #36-Ubuntu SMP Wed Aug 15 16:00:05 UTC 2018 x86_64
+libc:glibc 2.27 NPTL 2.27 
+rlimit: STACK 8192k, CORE 0k, NPROC 13100, NOFILE 1048576, AS infinity
+load average:9.66 8.14 5.73
+
+/proc/meminfo:
+MemTotal:        3457392 kB
+MemFree:          112096 kB
+MemAvailable:      43432 kB
+Buffers:            2620 kB
+Cached:            82620 kB
+SwapCached:        19164 kB
+Active:          2475924 kB
+Inactive:         644688 kB
+Active(anon):    2451048 kB
+Inactive(anon):   612756 kB
+Active(file):      24876 kB
+Inactive(file):    31932 kB
+Unevictable:          32 kB
+Mlocked:              32 kB
+SwapTotal:       2097148 kB
+SwapFree:           1080 kB
+Dirty:               624 kB
+Writeback:           528 kB
+AnonPages:       3016724 kB
+Mapped:            71164 kB
+Shmem:             28364 kB
+Slab:              88172 kB
+SReclaimable:      42560 kB
+SUnreclaim:        45612 kB
+KernelStack:       14128 kB
+PageTables:        50172 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     3825844 kB
+Committed_AS:   11718520 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      267680 kB
+DirectMap2M:     3336192 kB
+DirectMap1G:           0 kB
+
+
+CPU:total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 22 model 48 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 22
+model		: 48
+model name	: AMD A8-7410 APU with AMD Radeon R5 Graphics
+stepping	: 1
+microcode	: 0x7030105
+cpu MHz		: 1066.175
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good acc_power nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt topoext perfctr_nb bpext ptsc perfctr_llc cpb hw_pstate ssbd vmmcall bmi1 xsaveopt arat npt lbrv svm_lock nrip_save tsc_scale flushbyasid decodeassists pausefilter pfthreshold overflow_recov
+bugs		: fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass
+bogomips	: 4391.53
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb acc_power [13]
+
+processor	: 1
+vendor_id	: AuthenticAMD
+cpu family	: 22
+model		: 48
+model name	: AMD A8-7410 APU with AMD Radeon R5 Graphics
+stepping	: 1
+microcode	: 0x7030105
+cpu MHz		: 1064.536
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good acc_power nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt topoext perfctr_nb bpext ptsc perfctr_llc cpb hw_pstate ssbd vmmcall bmi1 xsaveopt arat npt lbrv svm_lock nrip_save tsc_scale flushbyasid decodeassists pausefilter pfthreshold overflow_recov
+bugs		: fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass
+bogomips	: 4391.53
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb acc_power [13]
+
+processor	: 2
+vendor_id	: AuthenticAMD
+cpu family	: 22
+model		: 48
+model name	: AMD A8-7410 APU with AMD Radeon R5 Graphics
+stepping	: 1
+microcode	: 0x7030105
+cpu MHz		: 1062.089
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good acc_power nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt topoext perfctr_nb bpext ptsc perfctr_llc cpb hw_pstate ssbd vmmcall bmi1 xsaveopt arat npt lbrv svm_lock nrip_save tsc_scale flushbyasid decodeassists pausefilter pfthreshold overflow_recov
+bugs		: fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass
+bogomips	: 4391.53
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb acc_power [13]
+
+processor	: 3
+vendor_id	: AuthenticAMD
+cpu family	: 22
+model		: 48
+model name	: AMD A8-7410 APU with AMD Radeon R5 Graphics
+stepping	: 1
+microcode	: 0x7030105
+cpu MHz		: 1081.649
+cache size	: 2048 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good acc_power nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt topoext perfctr_nb bpext ptsc perfctr_llc cpb hw_pstate ssbd vmmcall bmi1 xsaveopt arat npt lbrv svm_lock nrip_save tsc_scale flushbyasid decodeassists pausefilter pfthreshold overflow_recov
+bugs		: fxsave_leak sysret_ss_attrs null_seg spectre_v1 spectre_v2 spec_store_bypass
+bogomips	: 4391.53
+TLB size	: 1024 4K pages
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 40 bits physical, 48 bits virtual
+power management: ts ttp tm 100mhzsteps hwpstate cpb acc_power [13]
+
+
+
+Memory: 4k page, physical 3457392k(111848k free), swap 2097148k(1080k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.172-b01) for linux-amd64 JRE (1.8.0_172-b01), built on Apr 18 2018 12:57:33 by "zulu_re" with gcc 4.4.7 20120313 (Red Hat 4.4.7-3)
+
+time: Fri Sep  7 19:37:41 2018
+elapsed time: 6 seconds (0d 0h 0m 6s)
+
