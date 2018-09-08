@@ -7,45 +7,43 @@
 <body>
     <content tag="nav">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Skills <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
-                <li><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
-                <li><a href="#">App version:
-                    <g:meta name="info.app.version"/></a>
-                </li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Grails version:
-                    <g:meta name="info.app.grailsVersion"/></a>
-                </li>
-                <li><a href="#">Groovy version: ${GroovySystem.getVersion()}</a></li>
-                <li><a href="#">JVM version: ${System.getProperty('java.version')}</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Reloading active: ${grails.util.Environment.reloadingAgentEnabled}</a></li>
+                <li><a href="#">Java</a></li>
+                <li><a href="#">Groovy</a></li>
+                <li><a href="#">Grails</a></li>
+                <li><a href="#">SQL</a></li>
+                <li><a href="#">Linux</a></li>
+                <li><a href="#">Git</a></li>
             </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artefacts <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Github <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Controllers: ${grailsApplication.controllerClasses.size()}</a></li>
-                <li><a href="#">Domains: ${grailsApplication.domainClasses.size()}</a></li>
-                <li><a href="#">Services: ${grailsApplication.serviceClasses.size()}</a></li>
-                <li><a href="#">Tag Libraries: ${grailsApplication.tagLibClasses.size()}</a></li>
+                <li><a href="https://github.com/tetraPRO/icanjava" target="_blank">icanjava</a></li>
+                <li><a href="https://github.com/tetraPRO/javaFX_checkbook" target="_blank">javaFX_checkbook</a></li>
+                <li><a href="https://github.com/tetraPRO/gdaxAPI" target="_blank">gdaxAPI</a></li>
+                <li><a href="https://github.com/tetraPRO/autoSMS" target="_blank">autoSMS</a></li>
+                <li><a href="https://github.com/tetraPRO/Budget-Planner" target="_blank">Budget-Planner</a></li>
+                <li><a href="https://github.com/tetraPRO/cubedRelations" target="_blank">cubedRelations</a></li>
+                <li><a href="https://github.com/tetraPRO/financial_web" target="_blank">financial_web</a></li>
             </ul>
         </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Installed Plugins <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">How to Develop <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <g:each var="plugin" in="${applicationContext.getBean('pluginManager').allPlugins}">
-                    <li><a href="#">${plugin.name} - ${plugin.version}</a></li>
-                </g:each>
+                <li><a href="#">Designer</a></li>
+                <li><a href="#">Architect</a></li>
+                <li><a href="#">Blueprint</a></li>
+                <li><a href="#">Contractor</a></li>
+                <li><a href="#">Engineer</a></li>
             </ul>
         </li>
     </content>
 
     <div class="svg" role="presentation">
         <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
+
         </div>
     </div>
 
@@ -60,16 +58,6 @@
                 this application, click on each to execute its default action:
             </p>
 
-            <div id="controllers" role="navigation">
-                <h2>Available Controllers:</h2>
-                <ul>
-                    <g:each var="c" in="${grailsApplication.controllerClasses.sort { it.fullName } }">
-                        <li class="controller">
-                            <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
-                        </li>
-                    </g:each>
-                </ul>
-            </div>
         </section>
     </div>
 
