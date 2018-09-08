@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Trucker Can Dev!</title>
+    <title>I can Java!</title>
 </head>
 <body>
     <content tag="nav">
